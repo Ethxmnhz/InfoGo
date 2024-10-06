@@ -1,13 +1,63 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+    font-family: Arial, sans-serif; /* Set a default font */
+  }
+  
+  #root {
+    height: 100%;
+    display: flex;
+  }
+  
+ 
+  /* Sidebar Styles */
+  .sidebar {
+    width: 121px; /* Fixed width for sidebar */
+    background-color: rgba(173, 216, 230, 0.5); /* Light blue with opacity */
+    border-radius: 16px; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    padding: 20px 0; /* Padding for top and bottom */
+  }
+  
+  /* Header Styles */
+  .header {
+    display: flex;
+    justify-content: space-between; /* Space between logo and profile */
+    align-items: center; /* Center align vertically */
+    padding: 10px 20px; /* Padding around header */
+    height: 70px; /* Fixed height for header */
+    width: calc(100% - 121px); /* Full width minus sidebar width */
+    background-color: white; /* Header background color */
+    position: absolute; /* Position absolute to overlay on content */
+    top: 0; /* Align to the top */
+    left: 121px; /* Align next to sidebar */
+  }
+  
+  /* Logo Text Styles */
+  .logo-text {
+    font-size: 30px; /* Font size for logo */
+    font-weight: bold; /* Bold font weight */
+    margin-left: -100px;
+  }
+  
+
+  /* Add to index.css */
+
+.app-container {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent overflow */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main-content {
+    flex: 1; /* Take remaining space */
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+    padding: 20px; /* Space around the main content */
+    box-sizing: border-box; /* Include padding in width calculation */
+    max-height: calc(100vh - 100px); /* Adjust based on header height */
 }

@@ -1,0 +1,54 @@
+/* Header.css */
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between; /* Space between logo and profile */
+    align-items: center; /* Center align vertically */
+    padding: 10px 20px; /* Padding around header */
+    height: 70px; /* Fixed height for header */
+    width: calc(100% - 121px); /* Full width minus sidebar width */
+    background-color: white; /* Header background color */
+    position: absolute; /* Position absolute to overlay on content */
+    top: 0; /* Align to the top */
+    left: 121px; /* Align next to sidebar */
+  }
+  
+  /* Logo Text Styles */
+  .logo-text {
+    font-size: 30px; /* Font size for logo */
+    font-weight: bold; /* Bold font weight */
+    color: #00d5ff; /* Logo color */
+    margin-top:10px; /* Adjust this value to move the text to the left */
+    
+}
+
+  
+.flex {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Vertically center items */
+}
+
+.profile-photo {
+    width: 60px; /* Set the width */
+    height: 60px; /* Set the height */
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 40px; /* Space between the photo and the name */
+
+}
+
+.name-circle {
+    width: 80px; /* Width of the name circle */
+    height: 35px; /* Height of the name circle */
+    border-radius: 20px; /* Make the circle */
+    background-color: #08a1f498; /* Circle background color */
+    display: flex; /* Use flexbox for centering text */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    color: rgb(0, 0, 0); /* Text color */
+    font-weight: bold; /* Text boldness */
+    font-size:16px; /* Adjust font size */
+    margin-right: 100px;
+}
+
+  

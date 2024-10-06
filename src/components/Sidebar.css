@@ -1,0 +1,25 @@
+.sidebar {
+    width: 15px; /* Adjust width as needed */
+    height: 50vh; /* Reduce height */
+    background-color: #32b7ff9c; /* Light blue background */
+    border-radius: 15px; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center icons vertically */
+    align-items: center;
+    padding: 10px 40px;
+    margin: 24vh 0; /* Center sidebar vertically with some margin */
+    margin-left: 30px;
+}
+
+.sidebar-icon {
+    margin: 20px 0; /* Space between icons */
+    color: #000000; /* Icon color */
+    font-size: 24px; /* Icon size */
+    cursor: pointer; /* Pointer on hover */
+    transition: color 0.3s;
+}
+
+.sidebar-icon:hover {
+    color: #ffffff; /* Change color on hover */
+}

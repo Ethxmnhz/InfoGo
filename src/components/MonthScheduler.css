@@ -1,0 +1,83 @@
+/* src/components/MonthScheduler.css */
+
+.month-scheduler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #f0f8ff; /* Light blue background */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
+.month-scheduler:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+button {
+  background-color: #4a90e2; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease; /* Smooth color change */
+}
+
+button:hover {
+  background-color: #357ab8; /* Darker blue on hover */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  background: white; /* White background for forms */
+  padding: 20px;
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease; /* Animation for form appearance */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+label {
+  margin: 10px 0;
+  font-size: 18px; /* Larger font for labels */
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Rounded corners */
+  margin-top: 5px;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: #4a90e2; /* Highlight border on focus */
+  outline: none; /* Remove default outline */
+}
+
+@media (max-width: 600px) {
+  .month-scheduler {
+    width: 90%; /* Responsive width for smaller screens */
+  }
+}
