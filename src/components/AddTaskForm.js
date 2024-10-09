@@ -1,52 +1,68 @@
 // src/components/AddTaskForm.js
 
 import React, { useState } from 'react';
-import './MonthScheduler.css'; // Import CSS
+import { db } from '../firebase'; // Adjust the path based on your structure
+import { collection, doc, setDoc } from 'firebase/firestore';
+import { useUser } from '../context/UserContext'; // Import useUser
+import './MonthScheduler.css';
 
 const AddTaskForm = ({ addTask }) => {
+  const { user } = useUser(); // Get the user from context
   const [selectedDay, setSelectedDay] = useState('');
   const [task, setTask] = useState('');
   const [notify, setNotify] = useState(false);
-  const [addNotes, setAddNotes] = useState(false); // State for showing notes field
-  const [notes, setNotes] = useState(''); // State for notes
+  const [addNotes, setAddNotes] = useState(false);
+  const [notes, setNotes] = useState('');
 
-  // Get current date and calculate the next 7 days
   const currentDate = new Date();
   const nextWeekDays = Array.from({ length: 7 }, (_, i) => {
     const date = new Date(currentDate);
     date.setDate(currentDate.getDate() + i);
     return {
       name: date.toLocaleDateString('en-US', { weekday: 'long' }),
-      date: date.toDateString() // Full date string
+      date: date.toDateString()
     };
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newTask = {
       taskName: task,
       date: selectedDay,
       notify,
-      notes: addNotes ? notes : '', // Only add notes if they were added
+      notes: addNotes ? notes : '',
     };
-    addTask(newTask); // Call addTask function to add the task to the list
-    // Reset the form
-    setSelectedDay('');
-    setTask('');
-    setNotify(false);
-    setAddNotes(false);
-    setNotes('');
+
+    // Save task to Firestore
+    if (user) {
+      try {
+        const taskRef = doc(db, 'users', user.uid, 'tasks', `${selectedDay}-${task}`); // Update path as needed
+        await setDoc(taskRef, {
+          taskName: task,
+          date: selectedDay,
+          notify,
+          notes: addNotes ? notes : '',
+          createdAt: new Date().toISOString() // Optional timestamp
+        });
+        addTask(newTask); // Call addTask function to add the task to the list
+        setSelectedDay('');
+        setTask('');
+        setNotify(false);
+        setAddNotes(false);
+        setNotes('');
+      } catch (error) {
+        console.error("Error adding task: ", error);
+      }
+    } else {
+      console.error("No user is logged in.");
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
         Select Day:
-        <select
-          value={selectedDay}
-          onChange={(e) => setSelectedDay(e.target.value)}
-          required
-        >
+        <select value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)} required>
           <option value="" disabled>Select a day</option>
           {nextWeekDays.map((day) => (
             <option key={day.date} value={day.date}>

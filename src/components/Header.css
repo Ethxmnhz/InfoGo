@@ -51,4 +51,15 @@
     margin-right: 100px;
 }
 
+.connection-status {
+    margin-right: 10px;
+  }
+  
+  .connected {
+    color: green;
+  }
+  
+  .disconnected {
+    color: red;
+  }
   

@@ -9,6 +9,8 @@
   border-radius: 20px; /* Rounded corners */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease; /* Smooth scaling effect */
+  margin-top: 80px;
+  margin-left:50px ;
 }
 
 .month-scheduler:hover {
@@ -80,4 +82,30 @@ select:focus {
   .month-scheduler {
     width: 90%; /* Responsive width for smaller screens */
   }
+}
+.task-controls {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-bottom: 20px; /* Space below the controls */
+}
+
+
+
+/* Add to src/components/MonthScheduler.css */
+
+.form-container {
+  margin-top: 20px; /* Space above the forms */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align forms */
+}
+
+
+.recent-tasks-container {
+  margin: 20px; /* Space around the Recent Tasks section */
+  padding: 20px; /* Inner padding */
+  border: 1px solid #007bff; /* Border for Recent Tasks */
+  border-radius: 20px; /* Rounded corners */
+  background-color: white; /* White background for Recent Tasks */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
 }

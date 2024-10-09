@@ -1,0 +1,33 @@
+/* src/components/RecentTasks.css */
+
+
+  
+  .recent-tasks-card,
+  .calendar-card {
+    width: 300px; /* Fixed width for cards */
+    margin: 10px; /* Space between cards */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
+    background-color: #fff; /* White background for cards */
+  }
+  
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days a week */
+    gap: 5px; /* Gap between calendar days */
+  }
+  
+  .calendar-day {
+    border: 1px solid #007bff; /* Blue border for calendar days */
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px; /* Rounded corners for each day */
+    transition: background-color 0.3s; /* Transition effect for hover */
+  }
+  
+  .calendar-day:hover {
+    background-color: #d1e7dd; /* Light green background on hover */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  
